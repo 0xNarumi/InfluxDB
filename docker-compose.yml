@@ -6,11 +6,12 @@ services:
     container_name: influxdb
     restart: unless-stopped
     environment:
-      - TZ=Europe/Amsterdam
-      - INFLUXDB_DB=vergissberlin
-      - INFLUXDB_ADMIN_USER=testadminuser
-      - INFLUXDB_ADMIN_PASSWORD=testadminpassword
-      - INFLUXDB_USER=testuser
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      - DOCKER_INFLUXDB_INIT_PASSWORD=password
+      - DOCKER_INFLUXDB_INIT_ORG=neutra
+      - DOCKER_INFLUXDB_INIT_BUCKET=uniswap-v3-test
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=V2-token==
     ports:
       - 8086:8086
     volumes:
